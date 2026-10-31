@@ -1,0 +1,697 @@
+{
+  "meta": {
+    "warehouse": "수원 물류센터 (데모)",
+    "baseDate": "2026-10-31",
+    "note": "모든 데이터는 데모용 더미 데이터입니다."
+  },
+  "kpi": {
+    "inventoryAccuracy": 99.4,
+    "onTimeShipment": 97.8,
+    "orderFillRate": 98.6,
+    "pickRatePerHour": 74,
+    "dockToStockHours": 3.2
+  },
+  "items": [
+    {
+      "sku": "SKU-1001",
+      "name": "PCB ASSY 메인보드",
+      "category": "전자부품",
+      "zone": "A",
+      "location": "A-03-02",
+      "qty": 47,
+      "safetyStock": 100,
+      "unit": "EA",
+      "unitPrice": 800
+    },
+    {
+      "sku": "SKU-1002",
+      "name": "PCB ASSY 서브보드",
+      "category": "전자부품",
+      "zone": "A",
+      "location": "A-06-01",
+      "qty": 536,
+      "safetyStock": 200,
+      "unit": "EA",
+      "unitPrice": 12000
+    },
+    {
+      "sku": "SKU-1003",
+      "name": "커넥터 8P",
+      "category": "전자부품",
+      "zone": "A",
+      "location": "A-01-02",
+      "qty": 249,
+      "safetyStock": 500,
+      "unit": "EA",
+      "unitPrice": 800
+    },
+    {
+      "sku": "SKU-1004",
+      "name": "커넥터 16P",
+      "category": "전자부품",
+      "zone": "A",
+      "location": "A-05-02",
+      "qty": 2266,
+      "safetyStock": 1000,
+      "unit": "EA",
+      "unitPrice": 45000
+    },
+    {
+      "sku": "SKU-1005",
+      "name": "와이어 하네스 A",
+      "category": "전장",
+      "zone": "A",
+      "location": "A-04-03",
+      "qty": 1700,
+      "safetyStock": 1000,
+      "unit": "EA",
+      "unitPrice": 150
+    },
+    {
+      "sku": "SKU-1006",
+      "name": "와이어 하네스 B",
+      "category": "전장",
+      "zone": "A",
+      "location": "A-03-03",
+      "qty": 512,
+      "safetyStock": 200,
+      "unit": "EA",
+      "unitPrice": 800
+    },
+    {
+      "sku": "SKU-1007",
+      "name": "전동식 워터펌프",
+      "category": "완제품",
+      "zone": "C",
+      "location": "C-03-01",
+      "qty": 673,
+      "safetyStock": 200,
+      "unit": "EA",
+      "unitPrice": 150
+    },
+    {
+      "sku": "SKU-1008",
+      "name": "모터 컨트롤러",
+      "category": "완제품",
+      "zone": "C",
+      "location": "C-03-03",
+      "qty": 349,
+      "safetyStock": 500,
+      "unit": "EA",
+      "unitPrice": 150
+    },
+    {
+      "sku": "SKU-1009",
+      "name": "하우징 커버",
+      "category": "사출품",
+      "zone": "B",
+      "location": "B-04-01",
+      "qty": 1031,
+      "safetyStock": 500,
+      "unit": "EA",
+      "unitPrice": 12000
+    },
+    {
+      "sku": "SKU-1010",
+      "name": "하우징 베이스",
+      "category": "사출품",
+      "zone": "B",
+      "location": "B-05-03",
+      "qty": 891,
+      "safetyStock": 300,
+      "unit": "EA",
+      "unitPrice": 12000
+    },
+    {
+      "sku": "SKU-1011",
+      "name": "가스켓",
+      "category": "고무류",
+      "zone": "B",
+      "location": "B-01-02",
+      "qty": 516,
+      "safetyStock": 200,
+      "unit": "EA",
+      "unitPrice": 1200
+    },
+    {
+      "sku": "SKU-1012",
+      "name": "O-링 20mm",
+      "category": "고무류",
+      "zone": "B",
+      "location": "B-01-04",
+      "qty": 305,
+      "safetyStock": 100,
+      "unit": "EA",
+      "unitPrice": 1200
+    },
+    {
+      "sku": "SKU-1013",
+      "name": "볼트 M6",
+      "category": "체결류",
+      "zone": "B",
+      "location": "B-03-02",
+      "qty": 1185,
+      "safetyStock": 500,
+      "unit": "EA",
+      "unitPrice": 1200
+    },
+    {
+      "sku": "SKU-1014",
+      "name": "너트 M6",
+      "category": "체결류",
+      "zone": "B",
+      "location": "B-03-01",
+      "qty": 314,
+      "safetyStock": 300,
+      "unit": "EA",
+      "unitPrice": 12000
+    },
+    {
+      "sku": "SKU-1015",
+      "name": "PET 트레이",
+      "category": "포장재",
+      "zone": "D",
+      "location": "D-02-02",
+      "qty": 411,
+      "safetyStock": 200,
+      "unit": "EA",
+      "unitPrice": 3500
+    },
+    {
+      "sku": "SKU-1016",
+      "name": "골판지 박스 L",
+      "category": "포장재",
+      "zone": "D",
+      "location": "D-06-02",
+      "qty": 618,
+      "safetyStock": 500,
+      "unit": "EA",
+      "unitPrice": 45000
+    },
+    {
+      "sku": "SKU-1017",
+      "name": "방청 비닐",
+      "category": "포장재",
+      "zone": "D",
+      "location": "D-01-02",
+      "qty": 903,
+      "safetyStock": 300,
+      "unit": "EA",
+      "unitPrice": 150
+    },
+    {
+      "sku": "SKU-1018",
+      "name": "센서 모듈",
+      "category": "전자부품",
+      "zone": "A",
+      "location": "A-01-02",
+      "qty": 493,
+      "safetyStock": 300,
+      "unit": "EA",
+      "unitPrice": 12000
+    },
+    {
+      "sku": "SKU-1019",
+      "name": "방열판",
+      "category": "금속류",
+      "zone": "B",
+      "location": "B-04-04",
+      "qty": 317,
+      "safetyStock": 300,
+      "unit": "EA",
+      "unitPrice": 45000
+    },
+    {
+      "sku": "SKU-1020",
+      "name": "브라켓",
+      "category": "금속류",
+      "zone": "B",
+      "location": "B-02-02",
+      "qty": 421,
+      "safetyStock": 500,
+      "unit": "EA",
+      "unitPrice": 45000
+    }
+  ],
+  "trend": [
+    {
+      "date": "2026-10-18",
+      "inbound": 65,
+      "outbound": 69
+    },
+    {
+      "date": "2026-10-19",
+      "inbound": 46,
+      "outbound": 82
+    },
+    {
+      "date": "2026-10-20",
+      "inbound": 67,
+      "outbound": 62
+    },
+    {
+      "date": "2026-10-21",
+      "inbound": 87,
+      "outbound": 72
+    },
+    {
+      "date": "2026-10-22",
+      "inbound": 55,
+      "outbound": 58
+    },
+    {
+      "date": "2026-10-23",
+      "inbound": 44,
+      "outbound": 43
+    },
+    {
+      "date": "2026-10-24",
+      "inbound": 62,
+      "outbound": 66
+    },
+    {
+      "date": "2026-10-25",
+      "inbound": 35,
+      "outbound": 83
+    },
+    {
+      "date": "2026-10-26",
+      "inbound": 33,
+      "outbound": 90
+    },
+    {
+      "date": "2026-10-27",
+      "inbound": 37,
+      "outbound": 44
+    },
+    {
+      "date": "2026-10-28",
+      "inbound": 70,
+      "outbound": 45
+    },
+    {
+      "date": "2026-10-29",
+      "inbound": 80,
+      "outbound": 78
+    },
+    {
+      "date": "2026-10-30",
+      "inbound": 57,
+      "outbound": 73
+    },
+    {
+      "date": "2026-10-31",
+      "inbound": 34,
+      "outbound": 59
+    }
+  ],
+  "locations": [
+    {
+      "zone": "A",
+      "name": "전자부품존",
+      "capacity": 120,
+      "used": 76
+    },
+    {
+      "zone": "B",
+      "name": "사출/금속존",
+      "capacity": 100,
+      "used": 94
+    },
+    {
+      "zone": "C",
+      "name": "완제품존",
+      "capacity": 80,
+      "used": 57
+    },
+    {
+      "zone": "D",
+      "name": "포장재존",
+      "capacity": 60,
+      "used": 56
+    }
+  ],
+  "transactions": [
+    {
+      "id": "TX-20261031-001",
+      "type": "이동",
+      "sku": "SKU-1001",
+      "name": "PCB ASSY 메인보드",
+      "qty": 68,
+      "location": "A-03-02",
+      "partner": "-",
+      "time": "17:56",
+      "status": "완료"
+    },
+    {
+      "id": "TX-20261031-020",
+      "type": "출고",
+      "sku": "SKU-1018",
+      "name": "센서 모듈",
+      "qty": 60,
+      "location": "A-01-02",
+      "partner": "LG마그나",
+      "time": "17:34",
+      "status": "피킹중"
+    },
+    {
+      "id": "TX-20261031-024",
+      "type": "입고",
+      "sku": "SKU-1010",
+      "name": "하우징 베이스",
+      "qty": 121,
+      "location": "B-05-03",
+      "partner": "LG마그나",
+      "time": "16:47",
+      "status": "검수대기"
+    },
+    {
+      "id": "TX-20261031-012",
+      "type": "입고",
+      "sku": "SKU-1019",
+      "name": "방열판",
+      "qty": 293,
+      "location": "B-04-04",
+      "partner": "현대모비스",
+      "time": "16:14",
+      "status": "검수대기"
+    },
+    {
+      "id": "TX-20261031-004",
+      "type": "이동",
+      "sku": "SKU-1010",
+      "name": "하우징 베이스",
+      "qty": 269,
+      "location": "B-05-03",
+      "partner": "-",
+      "time": "16:12",
+      "status": "완료"
+    },
+    {
+      "id": "TX-20261031-003",
+      "type": "입고",
+      "sku": "SKU-1009",
+      "name": "하우징 커버",
+      "qty": 266,
+      "location": "B-04-01",
+      "partner": "현대모비스",
+      "time": "15:58",
+      "status": "검수대기"
+    },
+    {
+      "id": "TX-20261031-009",
+      "type": "재고조정",
+      "sku": "SKU-1006",
+      "name": "와이어 하네스 B",
+      "qty": 145,
+      "location": "A-03-03",
+      "partner": "-",
+      "time": "15:55",
+      "status": "완료"
+    },
+    {
+      "id": "TX-20261031-023",
+      "type": "입고",
+      "sku": "SKU-1015",
+      "name": "PET 트레이",
+      "qty": 156,
+      "location": "D-02-02",
+      "partner": "명화공업",
+      "time": "15:42",
+      "status": "적치완료"
+    },
+    {
+      "id": "TX-20261031-007",
+      "type": "이동",
+      "sku": "SKU-1003",
+      "name": "커넥터 8P",
+      "qty": 53,
+      "location": "A-01-02",
+      "partner": "-",
+      "time": "14:52",
+      "status": "완료"
+    },
+    {
+      "id": "TX-20261031-015",
+      "type": "출고",
+      "sku": "SKU-1019",
+      "name": "방열판",
+      "qty": 252,
+      "location": "B-04-04",
+      "partner": "현대모비스",
+      "time": "14:51",
+      "status": "출고완료"
+    },
+    {
+      "id": "TX-20261031-025",
+      "type": "출고",
+      "sku": "SKU-1002",
+      "name": "PCB ASSY 서브보드",
+      "qty": 35,
+      "location": "A-06-01",
+      "partner": "Bühler Motor",
+      "time": "14:32",
+      "status": "포장중"
+    },
+    {
+      "id": "TX-20261031-014",
+      "type": "입고",
+      "sku": "SKU-1008",
+      "name": "모터 컨트롤러",
+      "qty": 152,
+      "location": "C-03-03",
+      "partner": "자체생산",
+      "time": "14:13",
+      "status": "검수대기"
+    },
+    {
+      "id": "TX-20261031-021",
+      "type": "재고조정",
+      "sku": "SKU-1008",
+      "name": "모터 컨트롤러",
+      "qty": 95,
+      "location": "C-03-03",
+      "partner": "-",
+      "time": "13:31",
+      "status": "완료"
+    },
+    {
+      "id": "TX-20261031-016",
+      "type": "입고",
+      "sku": "SKU-1004",
+      "name": "커넥터 16P",
+      "qty": 230,
+      "location": "A-05-02",
+      "partner": "유니투스",
+      "time": "13:26",
+      "status": "적치완료"
+    },
+    {
+      "id": "TX-20261031-002",
+      "type": "출고",
+      "sku": "SKU-1011",
+      "name": "가스켓",
+      "qty": 67,
+      "location": "B-01-02",
+      "partner": "유니투스",
+      "time": "13:10",
+      "status": "출고완료"
+    },
+    {
+      "id": "TX-20261031-022",
+      "type": "입고",
+      "sku": "SKU-1013",
+      "name": "볼트 M6",
+      "qty": 40,
+      "location": "B-03-02",
+      "partner": "현대모비스",
+      "time": "13:00",
+      "status": "적치완료"
+    },
+    {
+      "id": "TX-20261031-010",
+      "type": "재고조정",
+      "sku": "SKU-1018",
+      "name": "센서 모듈",
+      "qty": 112,
+      "location": "A-01-02",
+      "partner": "-",
+      "time": "11:25",
+      "status": "완료"
+    },
+    {
+      "id": "TX-20261031-019",
+      "type": "입고",
+      "sku": "SKU-1006",
+      "name": "와이어 하네스 B",
+      "qty": 152,
+      "location": "A-03-03",
+      "partner": "명화공업",
+      "time": "10:55",
+      "status": "검수대기"
+    },
+    {
+      "id": "TX-20261031-018",
+      "type": "출고",
+      "sku": "SKU-1004",
+      "name": "커넥터 16P",
+      "qty": 137,
+      "location": "A-05-02",
+      "partner": "현대모비스",
+      "time": "10:34",
+      "status": "출고완료"
+    },
+    {
+      "id": "TX-20261031-011",
+      "type": "출고",
+      "sku": "SKU-1017",
+      "name": "방청 비닐",
+      "qty": 241,
+      "location": "D-01-02",
+      "partner": "LG마그나",
+      "time": "10:14",
+      "status": "피킹중"
+    },
+    {
+      "id": "TX-20261031-006",
+      "type": "출고",
+      "sku": "SKU-1004",
+      "name": "커넥터 16P",
+      "qty": 195,
+      "location": "A-05-02",
+      "partner": "유니투스",
+      "time": "10:03",
+      "status": "피킹중"
+    },
+    {
+      "id": "TX-20261031-008",
+      "type": "재고조정",
+      "sku": "SKU-1018",
+      "name": "센서 모듈",
+      "qty": 74,
+      "location": "A-01-02",
+      "partner": "-",
+      "time": "09:42",
+      "status": "완료"
+    },
+    {
+      "id": "TX-20261031-013",
+      "type": "입고",
+      "sku": "SKU-1002",
+      "name": "PCB ASSY 서브보드",
+      "qty": 127,
+      "location": "A-06-01",
+      "partner": "LG마그나",
+      "time": "07:55",
+      "status": "적치완료"
+    },
+    {
+      "id": "TX-20261031-005",
+      "type": "출고",
+      "sku": "SKU-1006",
+      "name": "와이어 하네스 B",
+      "qty": 286,
+      "location": "A-03-03",
+      "partner": "Bühler Motor",
+      "time": "07:38",
+      "status": "출고완료"
+    },
+    {
+      "id": "TX-20261031-017",
+      "type": "이동",
+      "sku": "SKU-1002",
+      "name": "PCB ASSY 서브보드",
+      "qty": 60,
+      "location": "A-06-01",
+      "partner": "-",
+      "time": "07:25",
+      "status": "완료"
+    }
+  ],
+  "orders": [
+    {
+      "orderNo": "SO-26103101",
+      "customer": "LG마그나",
+      "lines": 2,
+      "dueTime": "18:00",
+      "status": "대기"
+    },
+    {
+      "orderNo": "SO-26103102",
+      "customer": "LG마그나",
+      "lines": 2,
+      "dueTime": "11:00",
+      "status": "피킹중"
+    },
+    {
+      "orderNo": "SO-26103103",
+      "customer": "LG마그나",
+      "lines": 4,
+      "dueTime": "13:00",
+      "status": "출고완료"
+    },
+    {
+      "orderNo": "SO-26103104",
+      "customer": "LG마그나",
+      "lines": 5,
+      "dueTime": "11:00",
+      "status": "출고완료"
+    },
+    {
+      "orderNo": "SO-26103105",
+      "customer": "Bühler Motor",
+      "lines": 6,
+      "dueTime": "18:00",
+      "status": "포장중"
+    },
+    {
+      "orderNo": "SO-26103106",
+      "customer": "현대모비스",
+      "lines": 3,
+      "dueTime": "15:00",
+      "status": "피킹중"
+    },
+    {
+      "orderNo": "SO-26103107",
+      "customer": "명화공업",
+      "lines": 3,
+      "dueTime": "12:00",
+      "status": "포장중"
+    },
+    {
+      "orderNo": "SO-26103108",
+      "customer": "유니투스",
+      "lines": 4,
+      "dueTime": "11:00",
+      "status": "대기"
+    },
+    {
+      "orderNo": "SO-26103109",
+      "customer": "Bühler Motor",
+      "lines": 4,
+      "dueTime": "11:00",
+      "status": "대기"
+    },
+    {
+      "orderNo": "SO-26103110",
+      "customer": "현대모비스",
+      "lines": 5,
+      "dueTime": "18:00",
+      "status": "포장중"
+    },
+    {
+      "orderNo": "SO-26103111",
+      "customer": "유니투스",
+      "lines": 2,
+      "dueTime": "11:00",
+      "status": "피킹중"
+    },
+    {
+      "orderNo": "SO-26103112",
+      "customer": "유니투스",
+      "lines": 3,
+      "dueTime": "12:00",
+      "status": "출고완료"
+    }
+  ]
+}

@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>WMS 대시보드 데모</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <aside class="sidebar">
+    <div class="logo">WMS<span>Demo</span></div>
+    <nav>
+      <a href="#dashboard" class="active">대시보드</a>
+      <a href="#inventory">재고 현황</a>
+      <a href="#orders">출고 주문</a>
+      <a href="#transactions">입출고 이력</a>
+    </nav>
+    <div class="side-foot">HTML · CSS · JS<br>JSON 더미 데이터</div>
+  </aside>
+
+  <main>
+    <header class="topbar" id="dashboard">
+      <div>
+        <h1>창고 운영 대시보드</h1>
+        <p class="sub" id="meta">데이터 불러오는 중…</p>
+      </div>
+      <div class="clock" id="clock"></div>
+    </header>
+
+    <!-- KPI 카드 -->
+    <section class="kpis" id="kpis"></section>
+
+    <!-- 차트 영역 -->
+    <section class="grid-2">
+      <div class="card">
+        <div class="card-head"><h2>최근 14일 입출고 추이</h2>
+          <div class="legend"><i class="dot in"></i>입고 <i class="dot out"></i>출고</div>
+        </div>
+        <div id="trendChart" class="chart"></div>
+      </div>
+      <div class="card">
+        <div class="card-head"><h2>존별 로케이션 사용률</h2></div>
+        <div id="zoneBars"></div>
+      </div>
+    </section>
+
+    <section class="grid-2">
+      <div class="card" id="orders">
+        <div class="card-head"><h2>금일 출고 주문</h2><span class="muted" id="orderSummary"></span></div>
+        <div id="orderStatus" class="status-strip"></div>
+        <table><thead><tr><th>주문번호</th><th>고객사</th><th class="r">라인</th><th>마감</th><th>상태</th></tr></thead>
+          <tbody id="orderBody"></tbody></table>
+      </div>
+      <div class="card">
+        <div class="card-head"><h2>안전재고 미달 알림</h2><span class="badge warn" id="alertCount">0</span></div>
+        <ul id="alerts" class="alerts"></ul>
+      </div>
+    </section>
+
+    <!-- 재고 현황 -->
+    <section class="card" id="inventory">
+      <div class="card-head">
+        <h2>재고 현황</h2>
+        <div class="filters">
+          <input id="search" type="search" placeholder="품번·품명·로케이션 검색">
+          <select id="zoneFilter"><option value="">전체 존</option></select>
+          <label class="chk"><input type="checkbox" id="lowOnly"> 미달만</label>
+        </div>
+      </div>
+      <div class="table-wrap">
+        <table>
+          <thead><tr>
+            <th data-sort="sku">품번</th><th data-sort="name">품명</th><th data-sort="category">분류</th>
+            <th data-sort="location">로케이션</th><th data-sort="qty" class="r">현재고</th>
+            <th data-sort="safetyStock" class="r">안전재고</th><th class="r">충족률</th><th data-sort="value" class="r">재고금액</th>
+          </tr></thead>
+          <tbody id="invBody"></tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- 입출고 이력 -->
+    <section class="card" id="transactions">
+      <div class="card-head"><h2>최근 입출고 이력</h2>
+        <div class="tabs" id="txTabs">
+          <button class="on" data-t="">전체</button><button data-t="입고">입고</button>
+          <button data-t="출고">출고</button><button data-t="이동">이동</button><button data-t="재고조정">조정</button>
+        </div>
+      </div>
+      <div class="table-wrap">
+        <table><thead><tr><th>시간</th><th>유형</th><th>트랜잭션</th><th>품명</th><th class="r">수량</th><th>로케이션</th><th>거래처</th><th>상태</th></tr></thead>
+          <tbody id="txBody"></tbody></table>
+      </div>
+    </section>
+
+    <footer>WMS 대시보드 데모 · 모든 수치는 더미 데이터입니다.</footer>
+  </main>
+
+  <script src="js/app.js"></script>
+</body>
+</html>
