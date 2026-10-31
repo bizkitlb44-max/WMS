@@ -10,16 +10,18 @@
   <aside class="sidebar">
     <div class="logo">WMS<span>Demo</span></div>
     <nav>
-      <a href="#dashboard" class="active">대시보드</a>
-      <a href="#inventory">재고 현황</a>
+      <a href="#top" class="active">대시보드</a>
+      <a href="#io">금일 입·출고</a>
+      <a href="#shortage">안전재고 부족</a>
       <a href="#orders">출고 주문</a>
-      <a href="#transactions">입출고 이력</a>
+      <a href="#inventory">재고 현황</a>
+      <a href="#history">전체 이력</a>
     </nav>
     <div class="side-foot">HTML · CSS · JS<br>JSON 더미 데이터</div>
   </aside>
 
-  <main>
-    <header class="topbar" id="dashboard">
+  <main id="top">
+    <header class="topbar">
       <div>
         <h1>창고 운영 대시보드</h1>
         <p class="sub" id="meta">데이터 불러오는 중…</p>
@@ -27,62 +29,121 @@
       <div class="clock" id="clock"></div>
     </header>
 
-    <!-- KPI 카드 -->
+    <!-- ③ 안전재고 미달 강조 배너 -->
+    <section id="alertBanner" class="alert-banner" hidden></section>
+
+    <!-- KPI -->
     <section class="kpis" id="kpis"></section>
 
-    <!-- 차트 영역 -->
-    <section class="grid-2">
-      <div class="card">
-        <div class="card-head"><h2>최근 14일 입출고 추이</h2>
-          <div class="legend"><i class="dot in"></i>입고 <i class="dot out"></i>출고</div>
+    <!-- ① 금일 입·출고 한눈에 -->
+    <section id="io" class="io-grid">
+      <div class="card io in">
+        <div class="io-head">
+          <h2>▼ 금일 입고</h2>
+          <div class="io-sum" id="inSum"></div>
         </div>
-        <div id="trendChart" class="chart"></div>
+        <div class="io-status" id="inStatus"></div>
+        <div class="table-wrap short">
+          <table><thead><tr><th>시간</th><th>품명</th><th>공급업체</th><th class="r">수량</th><th>상태</th></tr></thead>
+            <tbody id="inBody"></tbody></table>
+        </div>
+      </div>
+      <div class="card io out">
+        <div class="io-head">
+          <h2>▲ 금일 출고</h2>
+          <div class="io-sum" id="outSum"></div>
+        </div>
+        <div class="io-status" id="outStatus"></div>
+        <div class="table-wrap short">
+          <table><thead><tr><th>시간</th><th>품명</th><th>고객사</th><th class="r">수량</th><th>상태</th></tr></thead>
+            <tbody id="outBody"></tbody></table>
+        </div>
+      </div>
+    </section>
+
+    <!-- ⑤ 안전재고 부족 자재 -->
+    <section id="shortage" class="card shortage">
+      <div class="card-head">
+        <h2>안전재고 부족 자재 <span class="count" id="shortCount">0</span></h2>
+        <span class="muted">현재고 &lt; 안전재고 품목만 표시 · 충족률 낮은 순</span>
+      </div>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>품번</th><th>품명</th><th>자재유형</th><th>공급업체</th><th>로케이션</th>
+            <th class="r">현재고</th><th class="r">안전재고</th><th class="r">부족수량</th><th>충족률</th><th class="r">권장 보충량</th></tr></thead>
+          <tbody id="shortBody"></tbody>
+        </table>
+      </div>
+      <p class="muted note">권장 보충량 = 안전재고 × 1.5 − 현재고 (10단위 올림)</p>
+    </section>
+
+    <!-- ④ 금일 출고 주문 (정렬) -->
+    <section class="grid-2">
+      <div class="card" id="orders">
+        <div class="card-head">
+          <h2>금일 출고 주문</h2>
+          <div class="sort-ctl">
+            <label>정렬
+              <select id="orderKey">
+                <option value="dueTime">마감시간</option><option value="orderNo">주문번호</option>
+                <option value="customer">고객사</option><option value="lines">라인수</option>
+                <option value="qty">수량</option><option value="status">진행상태</option>
+              </select>
+            </label>
+            <button id="orderDir" class="dir-btn" type="button">▲ 오름차순</button>
+          </div>
+        </div>
+        <div id="orderStatus" class="status-strip"></div>
+        <div class="table-wrap">
+          <table><thead><tr id="orderHead">
+            <th data-k="orderNo">주문번호</th><th data-k="customer">고객사</th><th data-k="lines" class="r">라인</th>
+            <th data-k="qty" class="r">수량</th><th data-k="dueTime">마감</th><th data-k="status">상태</th>
+          </tr></thead><tbody id="orderBody"></tbody></table>
+        </div>
       </div>
       <div class="card">
         <div class="card-head"><h2>존별 로케이션 사용률</h2></div>
         <div id="zoneBars"></div>
+        <div class="card-head mt"><h2>최근 14일 입·출고 건수</h2>
+          <div class="legend"><i class="dot in"></i>입고 <i class="dot out"></i>출고</div></div>
+        <div id="trendChart" class="chart"></div>
       </div>
     </section>
 
-    <section class="grid-2">
-      <div class="card" id="orders">
-        <div class="card-head"><h2>금일 출고 주문</h2><span class="muted" id="orderSummary"></span></div>
-        <div id="orderStatus" class="status-strip"></div>
-        <table><thead><tr><th>주문번호</th><th>고객사</th><th class="r">라인</th><th>마감</th><th>상태</th></tr></thead>
-          <tbody id="orderBody"></tbody></table>
-      </div>
-      <div class="card">
-        <div class="card-head"><h2>안전재고 미달 알림</h2><span class="badge warn" id="alertCount">0</span></div>
-        <ul id="alerts" class="alerts"></ul>
-      </div>
-    </section>
-
-    <!-- 재고 현황 -->
+    <!-- ② 재고 현황 (업체별 / 자재유형별) -->
     <section class="card" id="inventory">
       <div class="card-head">
         <h2>재고 현황</h2>
-        <div class="filters">
-          <input id="search" type="search" placeholder="품번·품명·로케이션 검색">
-          <select id="zoneFilter"><option value="">전체 존</option></select>
-          <label class="chk"><input type="checkbox" id="lowOnly"> 미달만</label>
+        <div class="seg" id="groupSeg">
+          <button data-g="" class="on">전체</button>
+          <button data-g="supplier">업체별</button>
+          <button data-g="category">자재유형별</button>
         </div>
       </div>
-      <div class="table-wrap">
+      <div class="filters">
+        <input id="search" type="search" placeholder="품번·품명·로케이션 검색">
+        <select id="supFilter"><option value="">전체 업체</option></select>
+        <select id="catFilter"><option value="">전체 자재유형</option></select>
+        <label class="chk"><input type="checkbox" id="lowOnly"> 안전재고 미달만</label>
+        <button id="resetBtn" type="button" class="link-btn">필터 초기화</button>
+      </div>
+      <div id="groupChips" class="chips"></div>
+      <div class="table-wrap tall">
         <table>
-          <thead><tr>
-            <th data-sort="sku">품번</th><th data-sort="name">품명</th><th data-sort="category">분류</th>
-            <th data-sort="location">로케이션</th><th data-sort="qty" class="r">현재고</th>
-            <th data-sort="safetyStock" class="r">안전재고</th><th class="r">충족률</th><th data-sort="value" class="r">재고금액</th>
+          <thead><tr id="invHead">
+            <th data-k="sku">품번</th><th data-k="name">품명</th><th data-k="category">자재유형</th><th data-k="supplier">공급업체</th>
+            <th data-k="location">로케이션</th><th data-k="qty" class="r">현재고</th><th data-k="safetyStock" class="r">안전재고</th>
+            <th data-k="ratio">충족률</th><th data-k="value" class="r">재고금액(원)</th>
           </tr></thead>
           <tbody id="invBody"></tbody>
         </table>
       </div>
     </section>
 
-    <!-- 입출고 이력 -->
-    <section class="card" id="transactions">
-      <div class="card-head"><h2>최근 입출고 이력</h2>
-        <div class="tabs" id="txTabs">
+    <!-- 전체 이력 -->
+    <section class="card" id="history">
+      <div class="card-head"><h2>금일 전체 이력</h2>
+        <div class="seg" id="txTabs">
           <button class="on" data-t="">전체</button><button data-t="입고">입고</button>
           <button data-t="출고">출고</button><button data-t="이동">이동</button><button data-t="재고조정">조정</button>
         </div>
@@ -93,7 +154,7 @@
       </div>
     </section>
 
-    <footer>WMS 대시보드 데모 · 모든 수치는 더미 데이터입니다.</footer>
+    <footer>WMS 대시보드 데모 r1 · 모든 수치와 업체명은 가상 데이터입니다.</footer>
   </main>
 
   <script src="js/app.js"></script>
